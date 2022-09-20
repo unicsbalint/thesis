@@ -14,11 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $isHomeInited = count(DB::select(DB::raw("SELECT inited FROM init_home WHERE inited = 1")));
+    return view('welcome', ['isHomeInited' => $isHomeInited]);
 });
 
-Route::get('/teszt', function () {
-    return view('tesztoldal');
-});
 
-Route::post('/blinkled', 'App\Http\Controllers\LedController@BlinkLed');
+
+// Csak bejelentkezés után elérhető funkciók.
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/logout', function(){
+        Session::flush();
+        Auth::logout();
+        return redirect('/');
+    });
+    Route::get('/teszt', function () {
+        return view('tesztoldal');
+    });
+    
+    Route::post('/blinkled', 'App\Http\Controllers\LedController@BlinkLed');
+ });
+
+Auth::routes();
+
