@@ -1,4 +1,18 @@
-<div id="registerContainer" class="container">
+
+<section id="userName" style="display: none">
+    <input type="text">
+    <label for="input">Add meg a neved</label>
+</section>
+
+<section id="homeName" style="display: none">
+    <input type="text">
+    <label for="input">Add meg az otthonod nevét</label>
+</section>
+
+<div id="backBtn" style="display: none">Vissza</div>
+<div id="nextBtn">Tovább</div>
+
+<section id="userRegisterProcess" class="container" style="display: none">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -12,7 +26,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="userName" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -70,4 +84,4 @@
             </div>
         </div>
     </div>
-</div>
+</section>
