@@ -1,5 +1,7 @@
 $( document ).ready(function() {
 
+    $(".initWrapper").fadeIn(2000);
+
     const processOrder = [
         "#userName",
         "#homeName",
@@ -7,7 +9,7 @@ $( document ).ready(function() {
     ];
 
     const fadeInSpeed = 2000;
-    const fadeOutSpeed = 500;
+    const fadeOutSpeed = 0;
     
     let processOrderState = 0;
 
@@ -16,7 +18,7 @@ $( document ).ready(function() {
     }
 
     async function hidePreviousProcess(){
-        $(processOrder[processOrderState]).fadeOut(fadeOutSpeed);
+        $(processOrder[processOrderState]).hide();
     }
 
     function loadPreviousProcess(){
@@ -35,12 +37,12 @@ $( document ).ready(function() {
 
     function disableButtonsIfNeeded(){
         if(processOrderState == 0)
-            $("#backBtn").fadeOut(fadeOutSpeed);
+            $("#backBtn").hide();
         else
             $("#backBtn").fadeIn(fadeInSpeed);
         
         if(processOrderState == 2)
-            $("#nextBtn").fadeOut(fadeOutSpeed);
+            $("#nextBtn").hide();
         else
             $("#nextBtn").fadeIn(fadeInSpeed);
         
