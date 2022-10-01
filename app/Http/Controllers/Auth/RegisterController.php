@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Models\HomeInited;
 
 class RegisterController extends Controller
 {
@@ -63,11 +64,21 @@ class RegisterController extends Controller
      * @return \App\Models\User
      */
     protected function create(array $data)
-    {
-        return User::create([
+    {        
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'homeName' => $data['homeName']
         ]);
+
+        // set home init state
+        HomeInited::updateOrCreate([
+            'inited' => 0
+        ],[
+            'inited' => 1
+        ]);
+        
+        return $user;
     }
 }

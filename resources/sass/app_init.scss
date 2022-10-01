@@ -23,3 +23,21 @@
     justify-content: center;
     align-items: center;
 }
+
+#nextBtn{
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    padding: 5px;
+    cursor: pointer;
+    box-shadow: rgb(14 30 37 / 12%) 0px 2px 4px 0px, rgb(14 30 37 / 32%) 0px 2px 16px 0px;
+}
+
+#backBtn{
+    position: fixed;
+    bottom: 5%;
+    left: 5%;
+    padding: 5px;
+    cursor: pointer;
+    box-shadow: rgb(14 30 37 / 12%) 0px 2px 4px 0px, rgb(14 30 37 / 32%) 0px 2px 16px 0px;
+}

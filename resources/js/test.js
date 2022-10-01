@@ -13,5 +13,4 @@ $( document ).ready(function() {
     
         });
     })
-    $("#finalize").click(function() { console.log(":D")} );
 });
