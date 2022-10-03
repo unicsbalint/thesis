@@ -3,7 +3,6 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <!-- <form> -->
                                     <div style="display: none" class="row mb-3">
                                         <input id="userNameInput" type="text"  name="name" value="">
                                         <input id="homeNameInput" type="text"  name="homeName" value="">
@@ -48,11 +47,10 @@
                                     <div class="row mb-0">
                                         <div>
                                             <button id="finalize" class="btn btn-primary">
-                                                {{ __('Register') }}
+                                                {{ __('Regisztráció') }}
                                             </button>
                                         </div>
                                     </div>
-                                <!-- </form> -->
                             </div>
                         </div>
                     </div>

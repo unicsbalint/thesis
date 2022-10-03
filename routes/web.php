@@ -31,6 +31,8 @@ Route::group(['middleware' => ['auth']], function() {
         return view('tesztoldal');
     });
     
+    Route::get('/home', 'App\Http\Controllers\HomeController@index');
+
     Route::post('/blinkled', 'App\Http\Controllers\LedController@BlinkLed');
  });
 
