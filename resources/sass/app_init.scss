@@ -1,0 +1,51 @@
+.initWrapper{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 240px;
+    width: 40%;
+    text-align: center;
+    border-radius: 20px;
+}
+.logo img{
+    width: 70%;
+    margin: 10%;
+}
+
+.activeProcess{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    min-height: 20vh;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#nextBtn{
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    padding: 5px;
+    cursor: pointer;
+    box-shadow: rgb(14 30 37 / 12%) 0px 2px 4px 0px, rgb(14 30 37 / 32%) 0px 2px 16px 0px;
+}
+
+#backBtn{
+    position: fixed;
+    bottom: 5%;
+    left: 5%;
+    padding: 5px;
+    cursor: pointer;
+    box-shadow: rgb(14 30 37 / 12%) 0px 2px 4px 0px, rgb(14 30 37 / 32%) 0px 2px 16px 0px;
+}
+
+#backBtn:hover{
+    opacity: 0.8;
+}
+
+#nextBtn:hover{
+    opacity: 0.8;
+}

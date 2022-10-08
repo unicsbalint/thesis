@@ -1,8 +1,18 @@
 
 @extends('layouts.app')
 @section('content')
-<div 
-style="padding: 20px; color: white; font-weight: bold; background-color: gray; border 1px solid black;width: 100px; cursor: pointer;text-align: center;"
-class="tester">Mágia </div>
+
+@if(Auth::user())
+    <script>
+        window.location = "/home";
+    </script> 
+@else
+    @if($isHomeInited == 0)
+        @include('init.init')
+    @else
+        @include('auth.login')
+    @endif
+@endif
+
 @endsection
  

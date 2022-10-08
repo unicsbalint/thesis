@@ -14,11 +14,31 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $isHomeInited = count(DB::select(DB::raw("SELECT inited FROM init_home WHERE inited = 1")));
+    return view('welcome', ['isHomeInited' => $isHomeInited]);
 });
 
-Route::get('/teszt', function () {
-    return view('tesztoldal');
-});
 
-Route::post('/blinkled', 'App\Http\Controllers\LedController@BlinkLed');
+
+// Csak bejelentkezés után elérhető funkciók.
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/logout', function(){
+        Session::flush();
+        Auth::logout();
+        return redirect('/');
+    });    
+    Route::get('/home', 'App\Http\Controllers\HomeController@index');
+
+    Route::get('/devices','App\Http\Controllers\DeviceController@index');
+    Route::get('/cloud', 'App\Http\Controllers\CloudController@index');
+    Route::get('/settings', 'App\Http\Controllers\SettingsController@index');
+    Route::get('/statistics', 'App\Http\Controllers\StatisticsController@index');
+
+    Route::post('/blinkled', 'App\Http\Controllers\LedController@BlinkLed');
+
+    Route::get('/getCloudFiles', 'App\Http\Controllers\CloudController@getCloudFiles');
+
+ });
+
+Auth::routes();
+
