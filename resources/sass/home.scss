@@ -1,0 +1,23 @@
+.logoWrapper{
+    min-width: 240px;
+    width: 40%;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.cloudLogoWrapper{
+    min-width: 240px;
+    width: 40%;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.menuLink{
+    text-decoration: none;
+    color: black;
+}
+
+.menuLink:hover{
+    opacity: 0.9;
+    color: darkslategray;
+}

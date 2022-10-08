@@ -3,31 +3,44 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+        <div class="logoWrapper">
+            <div class="logo"><img src="{{asset('images/logo.png')}}" alt="logo"></div>
+        </div>
 
-                    {{ __('You are logged in!') }}
-
-                    <div 
-                    style="padding: 20px; color: white; font-weight: bold; background-color: gray; border 1px solid black;width: 100px; cursor: pointer;text-align: center;" 
-                    class="tester">
-                    {{ $homeName }}
-                    </div> 
-
-                    <div> {{ $homeName }} Cloud</div>
-                    <div> {{ $homeName }} beállításai</div>
-                    
+        <div class="container text-center">    
+            <div class="row">
+                <div class="col-sm-3">
+                    <a class="menuLink" href="/devices">
+                        <img src="{{asset('images/home.png')}}" alt="CSB Cloud" class="cloudLogoWrapper">
+                        <div>{{ $homeName }} eszközei</div> 
+                    </a>                   
                 </div>
+
+                <div class="col-sm-3">
+                    <a class="menuLink" href="/cloud">
+                        <img src="{{asset('images/cloud.png')}}" alt="CSB Cloud" class="cloudLogoWrapper">
+                        <p>{{ $homeName }} Cloud</p> 
+                    </a>                   
+                </div>
+
+                <div class="col-sm-3">
+                    <a class="menuLink" href="/settings">
+                        <img src="{{asset('images/cloud.png')}}" alt="CSB Cloud" class="cloudLogoWrapper">
+                        <p>{{ $homeName }} Beállításai</p> 
+                    </a>
+                </div>
+
+                <div class="col-sm-3">
+                    <a class="menuLink" href="/statistics">
+                        <img src="{{asset('images/cloud.png')}}" alt="CSB Cloud" class="cloudLogoWrapper">
+                        <p>{{ $homeName }} Statisztikák</p> 
+                    </a>
+                </div>
+
             </div>
         </div>
+
     </div>
 </div>
 @endsection

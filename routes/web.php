@@ -26,12 +26,13 @@ Route::group(['middleware' => ['auth']], function() {
         Session::flush();
         Auth::logout();
         return redirect('/');
-    });
-    Route::get('/teszt', function () {
-        return view('tesztoldal');
-    });
-    
+    });    
     Route::get('/home', 'App\Http\Controllers\HomeController@index');
+
+    Route::get('/devices','App\Http\Controllers\DeviceController@index');
+    Route::get('/cloud', 'App\Http\Controllers\CloudController@index');
+    Route::get('/settings', 'App\Http\Controllers\SettingsController@index');
+    Route::get('/statistics', 'App\Http\Controllers\StatisticsController@index');
 
     Route::post('/blinkled', 'App\Http\Controllers\LedController@BlinkLed');
  });
