@@ -35,6 +35,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/statistics', 'App\Http\Controllers\StatisticsController@index');
 
     Route::post('/blinkled', 'App\Http\Controllers\LedController@BlinkLed');
+
+    Route::get('/getCloudFiles', 'App\Http\Controllers\CloudController@getCloudFiles');
+
  });
 
 Auth::routes();
