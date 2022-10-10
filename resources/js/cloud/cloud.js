@@ -1,10 +1,14 @@
 import cloudMethod from './cloudMethod';
-$( document ).ready(function() {
+$(document).ready(function() {
     if(window.location.pathname === "/cloud"){
-        const cloudMethods = new cloudMethod();
-        let rootDirectoryData = cloudMethods.getRootDirectoryData();
+
+        const cloudMethods = new cloudMethod(".directoryData");
+
+        const loadCloud = () => {
+            let rootDirectoryData = cloudMethods.getRootDirectoryData();
+            cloudMethods.displayDirectory(rootDirectoryData);
+        }
         
-
-
+        loadCloud();
     }
 });

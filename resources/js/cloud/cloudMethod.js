@@ -1,4 +1,8 @@
+import { getCloudFileHTML } from "./cloudFile";
 export default class cloudMethod {
+    constructor(cloudContainer){
+        this.cloudContainer = cloudContainer;
+    }
     getRootDirectoryData(){
         let rootDirectoryData = [];
         $.ajax({
@@ -14,5 +18,18 @@ export default class cloudMethod {
             }
             
         });
+        return rootDirectoryData;
+    }
+
+    displayDirectory(directoryData){
+        let htmlContent = "";
+        directoryData.forEach(file => {
+            htmlContent += getCloudFileHTML(file)
+        });
+        $(this.cloudContainer).html(htmlContent);
+    }
+
+    downloadFile(){
+
     }
 }

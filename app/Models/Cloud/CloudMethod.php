@@ -4,17 +4,24 @@ namespace App\Models\Cloud;
 use Storage;
 class CloudMethod
 {
-    public $name;
-    public $extension;
-    public $size;
-    public $path;
-    public $lastModified;
 
     public static function getRootDirectoryData(){       
         $detailedFileData = [];
+
         $storedDirectories = Storage::disk('local')->directories();
         $storedFiles = Storage::files();
 
+        //Mappák hozzáadása
+        foreach($storedDirectories as $directory){
+            $directoryDetailed = new CloudFile();
+            $directoryDetailed->name = $directory;
+            $directoryDetailed->size = Storage::size($directory);
+            $directoryDetailed->extension = "folder";
+            $directoryDetailed->path = $directory;
+            $directoryDetailed->lastModified = Storage::lastModified($directory);
+            array_push($detailedFileData,$directoryDetailed);
+        }
+        // Fájlok hozzáadása
         foreach ($storedFiles as $file){
             $fileDetailed = new CloudFile();
             $fileDetailed->name = $file;
@@ -24,6 +31,7 @@ class CloudMethod
             $fileDetailed->lastModified = Storage::lastModified($file);
             array_push($detailedFileData,$fileDetailed);
         }
+
 
         return $detailedFileData;
     }

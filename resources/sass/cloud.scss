@@ -1,0 +1,59 @@
+.cloudFile{
+    width: 150px;
+    height: 150px;
+    margin: 1.5%;
+}
+
+.fileBox{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    margin: 1%;
+    margin-top: 1%;
+    margin-top: 5%;
+    height: 100%;
+    border: 1px solid lightgray;
+}
+
+.uploadButton {
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    background: #fff;
+    cursor: pointer;
+    border: 2px solid #095776;
+    border-radius: 50%;
+    bottom: 5%;
+    right: 5%;
+}
+  
+  .uploadButton:after {
+    content: '';
+    position: absolute;
+    transform: translate(-50%, -50%);
+    height: 4px;
+    width: 50%;
+    background: #095776;
+    top: 50%;
+    left: 50%;
+  }
+  
+  .uploadButton:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #095776;
+    height: 50%;
+    width: 4px;
+  }
+  
+  .uploadButton:hover:before,
+  .uploadButton:hover:after {
+    background: #fff;
+    transition: 0.2s;
+  }
+  
+  .uploadButton:hover {
+    background-color: #095776;
+    transition: 0.2s;
+  }
