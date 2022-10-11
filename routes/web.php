@@ -37,6 +37,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/blinkled', 'App\Http\Controllers\LedController@BlinkLed');
 
     Route::get('/getCloudFiles', 'App\Http\Controllers\CloudController@getCloudFiles');
+    Route::get('/downloadFile', 'App\Http\Controllers\CloudController@downloadFile');
 
  });
 
