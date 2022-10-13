@@ -9,10 +9,11 @@ $(document).ready(function() {
             cloudMethods.displayDirectory(rootDirectoryData);
         }
 
-        let locationHistory = ['/'];
         
         loadCloud();
         addEventListenerToCloudFiles();
+
+        let locationHistory = ['/'];
 
         // A dinamikus generáltatás miatt az event listenereket is mindig hozzá kell adni vagy törölni kell.
         function addEventListenerToCloudFiles(){
@@ -35,12 +36,15 @@ $(document).ready(function() {
         }
 
         $(".previousLocation").click(function() {
-            const previousLocation = locationHistory[locationHistory.length-1];
-
+            if(locationHistory.length == 1){
+                return;
+            }
+            const previousLocation = locationHistory[locationHistory.length - 2];
             if(previousLocation == '/'){
                 removeEventListenerFromCloudFiles();
                 loadCloud();
                 addEventListenerToCloudFiles();
+                locationHistory.pop();
             }
             else{
                 cloudMethods.openDirectory(previousLocation, addEventListenerToCloudFiles, removeEventListenerFromCloudFiles);
@@ -49,6 +53,13 @@ $(document).ready(function() {
             }
             cloudMethods.setCloudLocation(previousLocation);
         });
+
+        // Backspace-el vissza lehet ugrani.
+        $(document).keydown(function(e) {
+            if(e.which == 8) {
+                $(".previousLocation").trigger("click");
+            }
+          });
 
 
     }

@@ -15,7 +15,7 @@
 </li> -->
 
 <div class="container text-center">
-        <div class="previousLocation" data-back="/">Vissza</div>
+        <button class="previousLocation btn btn-light" data-back="/">Vissza</button>
         <div class="cloudLocation">/</div> 
         <div class="cloud">
             <div class="directoryData row">

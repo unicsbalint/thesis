@@ -28,4 +28,8 @@ class CloudController extends Controller
         return CloudMethod::downloadFile($request->path);
     }
 
+    public function moveFile(Request $request){
+        return CloudMethod::moveFile($request->fileToMove, $request->targetDirectory);
+    }
+
 }

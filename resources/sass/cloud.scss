@@ -24,36 +24,47 @@
     bottom: 5%;
     right: 5%;
 }
-  
-  .uploadButton:after {
-    content: '';
-    position: absolute;
-    transform: translate(-50%, -50%);
-    height: 4px;
-    width: 50%;
-    background: #095776;
-    top: 50%;
-    left: 50%;
-  }
-  
-  .uploadButton:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #095776;
-    height: 50%;
-    width: 4px;
-  }
-  
-  .uploadButton:hover:before,
-  .uploadButton:hover:after {
-    background: #fff;
-    transition: 0.2s;
-  }
-  
-  .uploadButton:hover {
-    background-color: #095776;
-    transition: 0.2s;
-  }
+
+.uploadButton:after {
+  content: '';
+  position: absolute;
+  transform: translate(-50%, -50%);
+  height: 4px;
+  width: 50%;
+  background: #095776;
+  top: 50%;
+  left: 50%;
+}
+
+.uploadButton:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #095776;
+  height: 50%;
+  width: 4px;
+}
+
+.uploadButton:hover:before,
+.uploadButton:hover:after {
+  background: #fff;
+  transition: 0.2s;
+}
+
+.uploadButton:hover {
+  background-color: #095776;
+  transition: 0.2s;
+}
+.hide {
+  transition: 0.01s;
+  transform: translateX(-9999px);
+}
+.previousLocation {
+  position: fixed;
+  cursor: pointer;
+  bottom: 5%;
+  left: 5%;
+  border: 1px solid #bcbcbc;
+}

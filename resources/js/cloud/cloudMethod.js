@@ -61,9 +61,4 @@ export default class cloudMethod {
     setCloudLocation(location){
         $(".cloudLocation").text(location);
     }
-
-    setPreviousLocation(){
-
-    }
-
 }

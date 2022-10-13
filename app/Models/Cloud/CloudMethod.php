@@ -71,6 +71,13 @@ class CloudMethod
         return Storage::download($path);
     }
 
+    public static function moveFile($fileToMove, $targetDirectory){
+        $splitFile = explode("/", $fileToMove);
+        $fileName = $splitFile[count($splitFile) - 1];
+    
+        Storage::move($fileToMove, $targetDirectory."/".$fileName);
+    }
+
 }
 
 
