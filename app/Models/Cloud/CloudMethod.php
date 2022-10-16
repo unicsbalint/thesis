@@ -78,6 +78,20 @@ class CloudMethod
         Storage::move($fileToMove, $targetDirectory."/".$fileName);
     }
 
+    public static function removeFile($path){
+        return Storage::delete($path);
+    }
+
+    public static function uploadFile($request){
+        $filenameWithExt = $request->file('file')->getClientOriginalName();
+        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        $extension = $request->file('file')->getClientOriginalExtension();
+
+        $fileNameToStore = $filename.'_'.time().'.'.$extension;
+
+        return $request->file('file')->storeAs('/',$fileNameToStore);
+    }
+
 }
 
 

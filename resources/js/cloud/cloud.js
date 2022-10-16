@@ -1,7 +1,6 @@
 import cloudMethod from './cloudMethod';
 $(document).ready(function() {
     if(window.location.pathname === "/cloud"){
-
         const cloudMethods = new cloudMethod(".directoryData");
 
         const loadCloud = () => {
@@ -20,19 +19,33 @@ $(document).ready(function() {
             $(".cloudFile").click(function(){ 
                 const fileData = $(this).data();
                 if(fileData.extension == "folder"){
-                    cloudMethods.openDirectory(fileData.path, addEventListenerToCloudFiles, removeEventListenerFromCloudFiles);
                     cloudMethods.setCloudLocation(fileData.path);
+                    cloudMethods.openDirectory(fileData.path, addEventListenerToCloudFiles, removeEventListenerFromCloudFiles);
                     locationHistory.push(fileData.path);
                 }
-                else{
-                    cloudMethods.downloadFile(fileData);
-                }
             });
+
+            $(".download").click(function () {
+                const fileData = $(this).parents().eq(2).data();
+                cloudMethods.downloadFile(fileData);
+            });
+
+            $(".remove").click(function (){
+                const fileData = $(this).data();
+                cloudMethods.removeFile(fileData,  $(this).parents().eq(2));
+            });
+            
         }
 
         function removeEventListenerFromCloudFiles(){
             $('.cloudFile').unbind('click');
             $('.cloudFile').off('click');
+
+            $('.download').unbind('click');
+            $('.download').off('click');
+
+            $('.remove').unbind('click');
+            $('.remove').off('click');
         }
 
         $(".previousLocation").click(function() {
@@ -54,13 +67,15 @@ $(document).ready(function() {
             cloudMethods.setCloudLocation(previousLocation);
         });
 
-        // Backspace-el vissza lehet ugrani.
+        // Backspace-el vissza lehet ugrani az előző pozícióra.
         $(document).keydown(function(e) {
             if(e.which == 8) {
                 $(".previousLocation").trigger("click");
             }
-          });
+        });
 
-
+        $(".upload").click(function () {
+            cloudMethods.uploadFile(addEventListenerToCloudFiles, removeEventListenerFromCloudFiles);
+        });
     }
 });

@@ -32,4 +32,12 @@ class CloudController extends Controller
         return CloudMethod::moveFile($request->fileToMove, $request->targetDirectory);
     }
 
+    public function removeFile(Request $request){
+        return CloudMethod::removeFile($request->path);
+    }
+
+    public function uploadFile(Request $request){
+        return CloudMethod::uploadFile($request);
+    }
+
 }

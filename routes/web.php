@@ -39,7 +39,11 @@ Route::group(['middleware' => ['auth']], function() {
     // Cloud actions
     Route::get('/getCloudFiles', 'App\Http\Controllers\CloudController@getCloudFiles');
     Route::get('/downloadFile', 'App\Http\Controllers\CloudController@downloadFile');
+    Route::post('/uploadFile', 'App\Http\Controllers\CloudController@uploadFile');
     Route::post('/moveFile', 'App\Http\Controllers\CloudController@moveFile');
+    Route::post('/removeFile', 'App\Http\Controllers\CloudController@removeFile');
+
+    
 
  });
 

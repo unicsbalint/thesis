@@ -34,7 +34,7 @@ function drop(ev) {
     }
 
     const fileToMove = ev.dataTransfer.getData("fileData");   
-    console.log(fileToMove)
+    
     $.ajax({
       type: "POST",
       url: "/moveFile",

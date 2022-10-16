@@ -32,7 +32,7 @@
 
                 <div class="col-sm-3 d-flex flex-column">
                     <div class="menuPoint d-flex flex-column">
-                        <a class="menuLink" href="/devices">
+                        <a class="menuLink" href="/settings">
                             <img src="{{asset('images/settings.png')}}" alt="CSB Cloud" class="menuWrapper">
                         </a>   
                         <div class="mt-auto border-top">{{ $homeName }} Beállításai</div> 
@@ -41,7 +41,7 @@
 
                 <div class="col-sm-3 d-flex flex-column">
                     <div class="menuPoint d-flex flex-column">
-                        <a class="menuLink" href="/devices">
+                        <a class="menuLink" href="/statistics">
                             <img src="{{asset('images/statistics.png')}}" alt="CSB Cloud" class="menuWrapper">
                         </a>   
                         <div class="mt-auto border-top">{{ $homeName }} Statisztikák</div> 
