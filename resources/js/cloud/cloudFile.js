@@ -21,7 +21,6 @@
     if(file.extension == "folder"){
         return `
         <div
-            data-bs-toggle="tooltip"  data-bs-html="true" data-bs-placement="bottom"
             class="cloudFile d-flex flex-column col-sm-3"
             data-extension="${file.extension}"
             data-size="${file.size}"
@@ -43,7 +42,6 @@
     else{
         return `
         <div
-            data-bs-toggle="tooltip"  data-bs-html="true" data-bs-placement="bottom"
             class="cloudFile d-flex flex-column col-sm-3 dropdown"
             data-extension="${file.extension}"
             data-size="${file.size}"
