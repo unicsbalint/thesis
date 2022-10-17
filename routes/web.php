@@ -42,6 +42,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/uploadFile', 'App\Http\Controllers\CloudController@uploadFile');
     Route::post('/moveFile', 'App\Http\Controllers\CloudController@moveFile');
     Route::post('/removeFile', 'App\Http\Controllers\CloudController@removeFile');
+    Route::post('/createDirectory', 'App\Http\Controllers\CloudController@createDirectory');
 
     
 

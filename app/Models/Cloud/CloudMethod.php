@@ -89,7 +89,11 @@ class CloudMethod
 
         $fileNameToStore = $filename.'_'.time().'.'.$extension;
 
-        return $request->file('file')->storeAs('/',$fileNameToStore);
+        return $request->file('file')->storeAs($request->path,$fileNameToStore);
+    }
+
+    public static function createDirectory($path){
+        Storage::makeDirectory($path);
     }
 
 }

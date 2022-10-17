@@ -64,18 +64,32 @@ $(document).ready(function() {
                 cloudMethods.setCloudLocation(previousLocation);
                 locationHistory.pop();
             }
-            cloudMethods.setCloudLocation(previousLocation);
         });
 
         // Backspace-el vissza lehet ugrani az előző pozícióra.
-        $(document).keydown(function(e) {
-            if(e.which == 8) {
-                $(".previousLocation").trigger("click");
-            }
-        });
+        // $(document).keydown(function(e) {
+        //     if(e.which == 8) {
+        //         $(".previousLocation").trigger("click");
+        //     }
+        // });
 
         $(".upload").click(function () {
             cloudMethods.uploadFile(addEventListenerToCloudFiles, removeEventListenerFromCloudFiles);
         });
+
+        function validateDirectoryName(directoryName) {
+            var re = /^[^\s^\x00-\x1f\\?*:"";<>|\/.][^\x00-\x1f\\?*:"";<>|\/]*[^\s^\x00-\x1f\\?*:"";<>|\/.]+$/g;
+            return re.test(directoryName);
+        }
+
+        $("#createDirectoryButton").click(function () {
+            const directoryName = $("#directoryName").val();
+            if(!validateDirectoryName(directoryName)){
+                alert("Nem érvényes mappa név. Ne használj speciális karaktereket a mappa nevében.");
+                return;
+            }
+            cloudMethods.createDirectory(directoryName, addEventListenerToCloudFiles, removeEventListenerFromCloudFiles);
+        })
+
     }
 });

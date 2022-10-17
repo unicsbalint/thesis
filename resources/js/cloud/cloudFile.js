@@ -8,7 +8,7 @@
  }
 
  const getExtensionIcon = (extension) => {
-    const nonImageExtensions = ['folder','docx','pdf','docx','txt'];
+    const nonImageExtensions = ['folder','docx','pdf','docx','txt','xls','xlsx'];
     const imageExtensions = ['jpeg', 'png' , 'gif' , 'raw', 'svg' , 'heic', 'jpg'];
     if(nonImageExtensions.includes(extension)) return extension;
     if(imageExtensions.includes(extension)) return "image";
@@ -21,6 +21,7 @@
     if(file.extension == "folder"){
         return `
         <div
+            data-bs-toggle="tooltip"  data-bs-html="true" data-bs-placement="bottom"
             class="cloudFile d-flex flex-column col-sm-3"
             data-extension="${file.extension}"
             data-size="${file.size}"
@@ -42,6 +43,7 @@
     else{
         return `
         <div
+            data-bs-toggle="tooltip"  data-bs-html="true" data-bs-placement="bottom"
             class="cloudFile d-flex flex-column col-sm-3 dropdown"
             data-extension="${file.extension}"
             data-size="${file.size}"

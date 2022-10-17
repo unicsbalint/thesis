@@ -71,7 +71,6 @@ export default class cloudMethod {
     }
 
     removeFile(fileData, object){
-        let response = false;
         $.ajax({
             type: "POST",
             url: "/removeFile",
@@ -84,8 +83,6 @@ export default class cloudMethod {
                 object.remove();
             }
         });
-
-        return response;
     }
 
     uploadFile(addEventListeners, removeEventListeners){
@@ -93,6 +90,7 @@ export default class cloudMethod {
 
         const formData = new FormData();
         formData.append('file', $('#file')[0].files[0]);
+        formData.append('path', this.cloudLocation)
 
         const thisClass = this;
         $.ajax({
@@ -105,7 +103,26 @@ export default class cloudMethod {
             success : function() {
                 $("#file").val("");
                 $("#modalClose").trigger("click");
-                thisClass.openDirectory(this.cloudLocation, addEventListeners, removeEventListeners)
+                thisClass.openDirectory(thisClass.cloudLocation, addEventListeners, removeEventListeners)
+            }
+        });
+    }
+
+    createDirectory(directoryName, addEventListeners, removeEventListeners){
+        const thisClass = this;
+
+        $.ajax({
+            type: "POST",
+            url: "/createDirectory",
+            async: false,
+            data: {
+                path: this.cloudLocation + "/" + directoryName
+            },
+            headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+            success: function (response) {
+                $("#directoryName").val("");
+                $("#directoryModalClose").trigger("click");
+                thisClass.openDirectory(thisClass.cloudLocation, addEventListeners, removeEventListeners)
             }
         });
     }

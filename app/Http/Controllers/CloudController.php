@@ -40,4 +40,8 @@ class CloudController extends Controller
         return CloudMethod::uploadFile($request);
     }
 
+    public function createDirectory(Request $request){
+        return CloudMethod::createDirectory($request->path);
+    }
+
 }
