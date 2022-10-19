@@ -1,3 +1,4 @@
+import { showModal } from '../alertModal';
 $( document ).ready(function() {
 
     $(".initWrapper").fadeIn(2000);
@@ -60,7 +61,7 @@ $( document ).ready(function() {
 
     $("#nextBtn").click(function () { 
         if(!isInputDataVaild()){
-            alert("Kérlek adj meg egy legalább 3 karakter hosszú karakterláncot névnek.");
+            showModal("Kérlek adj meg egy legalább 3 karakter hosszú karakterláncot névnek.");
             return;
         }
         hidePreviousProcess();
@@ -131,12 +132,12 @@ $( document ).ready(function() {
                     location.reload();
                 },
                 error: function(response){
-                    alert("Az e-mail cím már foglalt.")
+                    showModal("Az e-mail cím már foglalt.")
                 }
             });
         }
         else{
-            alert(formValidationResult[1]);
+            showModal(formValidationResult[1]);
         }
     } );
 

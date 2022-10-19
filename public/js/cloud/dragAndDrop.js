@@ -1,3 +1,8 @@
+const showModal = (message) => {
+  const statusModal = new bootstrap.Modal(document.getElementById('statusModal'))
+  statusModal.show()
+  $("#statusModalMessage").html(message);
+}
 function allowDrop(ev) {
     ev.preventDefault();
 }
@@ -15,7 +20,9 @@ function drag(ev) {
       path: ev.target.getAttribute('data-path'),
       extension: ev.target.getAttribute('data-extension')
     }
-    if(fileData.extension == "folder") return;
+    if(fileData.extension == "folder"){
+        showModal("Mappát nem mozgathatsz!");
+    }
 
     ev.dataTransfer.setData("fileData", fileData.path);
 }
@@ -29,7 +36,7 @@ function drop(ev) {
     }
 
     if(directoryData.extension !== "folder"){
-        alert("Csak mappába másolhatsz!");
+        showModal("Csak mappába másolhatsz!");
         return;
     }
 

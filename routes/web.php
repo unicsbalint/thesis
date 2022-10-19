@@ -44,7 +44,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/removeFile', 'App\Http\Controllers\CloudController@removeFile');
     Route::post('/createDirectory', 'App\Http\Controllers\CloudController@createDirectory');
 
-    
+    // Settings
+    Route::post('/changePassword', 'App\Http\Controllers\Auth\ChangePasswordController@changePassword');
 
  });
 

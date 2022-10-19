@@ -12,7 +12,9 @@ const mix = require('laravel-mix');
  */
 
 mix.js(['resources/js/app.js','resources/js/test.js','resources/js/init/app_init.js',
-        'resources/js/cloud/cloud.js','resources/js/cloud/cloudMethod.js', 'resources/js/home/home.js'], 'public/js')
+        'resources/js/cloud/cloud.js','resources/js/cloud/cloudMethod.js', 'resources/js/home/home.js',
+        'resources/js/settings/profileSettings.js'
+        ], 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sourceMaps();
     
