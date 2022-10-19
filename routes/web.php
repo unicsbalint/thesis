@@ -29,14 +29,25 @@ Route::group(['middleware' => ['auth']], function() {
     });    
     Route::get('/home', 'App\Http\Controllers\HomeController@index');
 
-    Route::get('/devices','App\Http\Controllers\DeviceController@index');
-    Route::get('/cloud', 'App\Http\Controllers\CloudController@index');
-    Route::get('/settings', 'App\Http\Controllers\SettingsController@index');
-    Route::get('/statistics', 'App\Http\Controllers\StatisticsController@index');
+    Route::get('/devices','App\Http\Controllers\DeviceController@index')->name('devices');
+    Route::get('/cloud', 'App\Http\Controllers\CloudController@index')->name('cloud');
+    Route::get('/settings', 'App\Http\Controllers\SettingsController@index')->name('settings');
+    Route::get('/statistics', 'App\Http\Controllers\StatisticsController@index')->name('statistics');
 
     Route::post('/blinkled', 'App\Http\Controllers\LedController@BlinkLed');
 
+    // Cloud actions
     Route::get('/getCloudFiles', 'App\Http\Controllers\CloudController@getCloudFiles');
+    Route::get('/downloadFile', 'App\Http\Controllers\CloudController@downloadFile');
+    Route::post('/uploadFile', 'App\Http\Controllers\CloudController@uploadFile');
+    Route::post('/moveFile', 'App\Http\Controllers\CloudController@moveFile');
+    Route::post('/removeFile', 'App\Http\Controllers\CloudController@removeFile');
+    Route::post('/createDirectory', 'App\Http\Controllers\CloudController@createDirectory');
+
+    // Settings
+    Route::post('/changePassword', 'App\Http\Controllers\Auth\ChangePasswordController@changePassword');
+    Route::post('/changeUsername', 'App\Http\Controllers\SettingsController@changeUsername');
+    Route::post('/changeHomename', 'App\Http\Controllers\SettingsController@changeHomename');
 
  });
 
