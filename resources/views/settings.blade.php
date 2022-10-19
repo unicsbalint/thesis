@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('content')
-<div class="container-sm">
+<div class="container-sm settingsContainer">
     <div class="card text-center">
             <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" data-bs-toggle="tab" href="#userSettings">Felhasználói profil beállításai</a>
+                        <a class="nav-link active settingsTab" data-bs-toggle="tab" href="#userSettings">Felhasználói profil beállításai</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#homeSettings">Otthon beállításai</a>
+                        <a class="nav-link settingsTab" data-bs-toggle="tab" href="#homeSettings">Otthon beállításai</a>
                     </li>
                 </ul>
             </div>
@@ -18,8 +18,8 @@
                     <hr>
                     <div class="d-flex align-items-center justify-content-center w-100">
                         <div class="input-group mb-3 w-75">
-                            <input type="text" class="form-control" placeholder="{{ $userData->name }}" value="{{ $userData->name }}">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Név beállítása</button>
+                            <input type="text" class="form-control" id="newUsername" placeholder="{{ $userData->name }}" value="{{ $userData->name }}">
+                            <button class="btn btn-outline-secondary" id="changeUsername" type="button" id="button-addon2">Név beállítása</button>
                         </div>
                     </div>
                     <h6 class="mt-2">Jelszóváltoztatás</h6>
@@ -53,7 +53,16 @@
                             Jelszó frissítése
                         </button>
                 </div>
-                <div id="homeSettings" class="tab-pane">Otthon beállításai</div>
+                <div id="homeSettings" class="tab-pane">
+                    <h6>Otthon nevének megváltoztatása</h6>
+                        <hr>
+                        <div class="d-flex align-items-center justify-content-center w-100">
+                            <div class="input-group mb-3 w-75">
+                                <input type="text" class="form-control" id="newHomeName" placeholder="{{ $userData->homeName }}" value="{{ $userData->homeName }}">
+                                <button class="btn btn-outline-secondary" id="changeHomeName" type="button" id="button-addon2">Név beállítása</button>
+                            </div>
+                        </div>
+                    </div>
             </div>
     </div>
 </div>
