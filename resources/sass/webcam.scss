@@ -1,0 +1,13 @@
+.webcamContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 15px auto;
+    max-width: 736px;
+}
+
+.webcamImage{
+    width: 640px;
+    height: 480px;
+}

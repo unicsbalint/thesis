@@ -1,7 +1,6 @@
 
 @extends('layouts.app')
 @section('content')
-
 <div class="container text-center">
     <button class="previousLocation btn btn-light" data-back="/">Vissza</button>
     <div class="cloudLocation">/</div> 
