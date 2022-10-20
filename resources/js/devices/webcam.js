@@ -10,7 +10,7 @@ $(document).ready(function() {
                 headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
             });
 
-            setTimeout(() => refreshWebcamModal(registerModalPictureTakeEvent), 1000);
+            setTimeout(() => refreshWebcamModal(), 1000);
             setTimeout(() => showWebcamModal(), 2000);
             
         });
