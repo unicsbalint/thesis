@@ -1,8 +1,12 @@
 import { showWebcamModal, refreshWebcamModal } from './webcamModal';
 import { showModal } from '../alertModal';
+import { showLoader , hideLoader } from '../loader';
+
 $(document).ready(function() {
     if(window.location.pathname === "/devices"){
+
         $("#openStream").click(function () {
+            showLoader();
             $.ajax({
                 type: "POST",
                 keepalive: true,
@@ -12,9 +16,7 @@ $(document).ready(function() {
 
             setTimeout(() => refreshWebcamModal(), 1000);
             setTimeout(() => showWebcamModal(), 2000);
-            
         });
-
         
         const webcamOnClose = document.getElementById('webcamModal')
         webcamOnClose.addEventListener('hidden.bs.modal', function (event) {
@@ -26,12 +28,19 @@ $(document).ready(function() {
         });
 
         const takePicture = () => {
+            showLoader();
             $.ajax({
                 type: "POST",
                 url: "/takePicture",
                 headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
-                success: function(){
+                success: function() {
                     showModal("A képet elhelyeztük a felhőtárhelyed gyökérkönyvtárába!")
+                },
+                error: function() {
+                    showModal("Jelenleg használatban van a kamera! Kapcsold ki a streaming szolgáltatást.")
+                },
+                complete: function() {
+                    hideLoader();
                 }
             });
         }

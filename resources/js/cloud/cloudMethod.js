@@ -1,4 +1,5 @@
 import { getCloudFileHTML } from "./cloudFile";
+import { showLoader, hideLoader } from "../loader";
 export default class cloudMethod {
     constructor(cloudContainer){
         this.cloudContainer = cloudContainer;
@@ -87,7 +88,7 @@ export default class cloudMethod {
 
     uploadFile(addEventListeners, removeEventListeners){
         if(!$('#file')[0].files[0]) return;
-
+        showLoader();
         const formData = new FormData();
         formData.append('file', $('#file')[0].files[0]);
         formData.append('path', this.cloudLocation)
@@ -104,6 +105,13 @@ export default class cloudMethod {
                 $("#file").val("");
                 $("#modalClose").trigger("click");
                 thisClass.openDirectory(thisClass.cloudLocation, addEventListeners, removeEventListeners)
+                hideLoader();
+            },
+            error: function() {
+                hideLoader();
+            },
+            complete: function() {
+                hideLoader();
             }
         });
     }

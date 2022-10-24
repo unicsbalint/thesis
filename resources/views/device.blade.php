@@ -22,6 +22,5 @@
                 <div id="something" class="tab-pane"></div>
             </div>
     </div>
-</div>
-  
+</div>  
 @endsection

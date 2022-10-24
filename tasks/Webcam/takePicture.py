@@ -6,4 +6,4 @@ import time
 
 camera = PiCamera()
 sleep(0.1)
-camera.capture("/var/www/html/cloud/img_" + str(time.time()) + ".jpg")
+camera.capture("/var/www/html/cloud/img_" + str(time.time()).replace('.','_') + ".jpg")

@@ -1,10 +1,13 @@
+import { hideLoader } from '../loader';
+
 export const showWebcamModal = () => {
     const webcamModal = new bootstrap.Modal(document.getElementById('webcamModal'))
     webcamModal.show()
+    hideLoader();
 }
 
 export const refreshWebcamModal = () => {
-    var container = document.getElementById("webcamModal");
-    var content = container.innerHTML;
+    let container = document.getElementById("webcamModal");
+    const content = container.innerHTML;
     container.innerHTML= content; 
 }
