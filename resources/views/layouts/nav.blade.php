@@ -4,8 +4,9 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <!-- {{ config('app.name', 'Laravel') }} -->
                     <img style="width: 3rem;" src="{{asset('images/logo.png')}}" alt="CSB Cloud" class="menuWrapper">
-
                 </a>
+                <div>20.3 &#8451;🌡</div>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -26,7 +27,8 @@
                             </li>
                         @endif
                     </ul>
-
+                        
+                    </li>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
@@ -43,7 +45,6 @@
                                 </li>
                             @endif
                         @else
-
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -72,6 +73,7 @@
                             </li>
                         @endguest
                     </ul>
+              
                 </div>
             </div>
         </nav>

@@ -14,7 +14,6 @@
               <div id="webcamModalMessage"></div>
         </div>
       <div class="modal-footer">
-        <button class="btn btn-success takePictureInModal">Kép készítése 📷</button>
         <button type="button" id="modalClose" class="btn btn-danger" data-bs-dismiss="modal">Bezárás</button>
       </div>
     </div>

@@ -103,7 +103,7 @@ export default class cloudMethod {
             headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
             success : function() {
                 $("#file").val("");
-                $("#modalClose").trigger("click");
+                $(".modalClose").trigger("click");
                 thisClass.openDirectory(thisClass.cloudLocation, addEventListeners, removeEventListeners)
                 hideLoader();
             },
@@ -112,6 +112,7 @@ export default class cloudMethod {
             },
             complete: function() {
                 hideLoader();
+                $(".modalClose").trigger("click");
             }
         });
     }

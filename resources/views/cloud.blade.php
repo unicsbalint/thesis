@@ -21,14 +21,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="uploadModalLabel">Fájl feltöltése</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close modalClose" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
              <input id="file" type="file" name="file" class="form-control">
       </div>
       <div class="modal-footer">
-        <button type="button" id="modalClose" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success upload">Upload</button>
+        <button type="button" id="modalClose" class="btn btn-secondary" data-bs-dismiss="modal">Mégsem</button>
+        <button type="button" class="btn btn-success upload">Feltöltés</button>
       </div>
     </div>
   </div>
