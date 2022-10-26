@@ -1,7 +1,72 @@
+import { showModal } from '../alertModal'
+import { showLoader , hideLoader } from '../loader';
+
 $(document).ready(function() {
     if(window.location.pathname === "/devices"){
-        $(".livingRoomLedToggle").click(function() {
-            console.log($(this).prop('checked'))
+
+        $(".moodLightToggle").click(function() {
+            const isLedTurnedOn = $(this).prop('checked');
+            const color = $(this).data('color');
+
+            if(isLedTurnedOn){
+                turnOnMoodLightWithColor(color);
+            }
+            else{
+                turnOffMoodLight();
+            }
+        });
+
+        $(".colorPicker").click(function () {
+            const isLedTurnedOn = $(".moodLightToggle").prop('checked');
+            const colorClicked = $(this).data('color');
+            console.log(isLedTurnedOn, colorClicked)
+            if(isLedTurnedOn){
+                console.log("changeing light to:", colorClicked)
+                turnOnMoodLightWithColor(colorClicked);
+            }
+            else{
+                $(".moodLightToggle").data('color', colorClicked);
+            }
+        });
+    }
+
+    const turnOffMoodLight = () => {
+        $.ajax({
+            type: "POST",
+            url: "/switchMoodLight",
+            headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+            data: {
+                color: "turnoff"
+            },
+            beforeSend: function (){
+                showLoader();
+            },
+            error: function() {
+                 showModal("Probléma lépett fel a lámpa lekapcsolása közben!")
+            },
+            complete: function() {
+                hideLoader();
+            }
+        });
+    }
+
+    const turnOnMoodLightWithColor = (color) => {
+        $.ajax({
+            type: "POST",
+            url: "/switchMoodLight",
+            headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+            data: {
+                color: color
+            },
+            beforeSend: function (){
+                showLoader();
+            },
+            error: function() {
+                showModal("Probléma lépett fel a lámpa felkapcsolása közben!")
+            },
+            complete: function() {
+                hideLoader();
+            }
         });
     }
 });

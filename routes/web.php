@@ -54,6 +54,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/stopWebcamServer', 'App\Http\Controllers\WebcamController@stopWebcamServer');    
     Route::post('/takePicture', 'App\Http\Controllers\WebcamController@takePicture');    
 
+    // Leds
+    Route::post('/switchMoodLight', 'App\Http\Controllers\DeviceController@switchMoodLight');    
+
+
  });
 
 Auth::routes();
