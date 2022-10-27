@@ -48,6 +48,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/changePassword', 'App\Http\Controllers\Auth\ChangePasswordController@changePassword');
     Route::post('/changeUsername', 'App\Http\Controllers\SettingsController@changeUsername');
     Route::post('/changeHomename', 'App\Http\Controllers\SettingsController@changeHomename');
+    Route::post('/changeBackupInterval', 'App\Http\Controllers\SettingsController@changeBackupInterval');
 
     // Webcam
     Route::post('/startWebcamServer', 'App\Http\Controllers\WebcamController@startWebcamServer');
