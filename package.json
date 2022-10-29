@@ -21,6 +21,7 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
+        "highcharts": "^10.2.1",
         "jquery": "^3.6.1"
     }
 }

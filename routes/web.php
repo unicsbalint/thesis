@@ -48,6 +48,21 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/changePassword', 'App\Http\Controllers\Auth\ChangePasswordController@changePassword');
     Route::post('/changeUsername', 'App\Http\Controllers\SettingsController@changeUsername');
     Route::post('/changeHomename', 'App\Http\Controllers\SettingsController@changeHomename');
+    Route::post('/changeBackupInterval', 'App\Http\Controllers\SettingsController@changeBackupInterval');
+    Route::post('/changeSensorDisplayed', 'App\Http\Controllers\SettingsController@changeSensorDisplayed');
+
+    
+    // Webcam
+    Route::post('/startWebcamServer', 'App\Http\Controllers\WebcamController@startWebcamServer');
+    Route::post('/stopWebcamServer', 'App\Http\Controllers\WebcamController@stopWebcamServer');    
+    Route::post('/takePicture', 'App\Http\Controllers\WebcamController@takePicture');    
+
+    // Leds
+    Route::post('/switchMoodLight', 'App\Http\Controllers\DeviceController@switchMoodLight');    
+
+    // Statistics
+    Route::get('/getStatistics', 'App\Http\Controllers\StatisticsController@getStatistics');
+
 
  });
 

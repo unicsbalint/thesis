@@ -24,6 +24,7 @@
 </head>
 <body>
     <div id="app">
+    @include('layouts.loader')
     @include('layouts.alertModal')
     @include('layouts.nav')
         <main class="py-4">

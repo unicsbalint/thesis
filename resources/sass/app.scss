@@ -7,9 +7,12 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-
+// Saját modulok:
 @import 'app_init';
 @import 'login';
 @import 'home';
 @import 'cloud';
 @import 'settings';
+@import 'webcam';
+@import 'loader';
+@import 'devices';
