@@ -6,8 +6,16 @@
     margin-right: 10px;
 }
 
-.lightSwitch{
+.switch{
     height: 2em; 
     width: 4em !important;
     cursor: pointer;
+}
+
+.notAvailable{
+    opacity: 0.3;
+}
+
+.notNumber{
+    border: 1px solid red !important;
 }
