@@ -1,4 +1,5 @@
 import { showModal } from '../alertModal';
+import { showLoader, hideLoader } from '../loader';
 $(document).ready(function() {
     if(window.location.pathname === "/settings"){
         $("#changeHomeName").click(function () {
@@ -16,17 +17,42 @@ $(document).ready(function() {
                 data: {
                     homeName: newHomeName
                 },
+                beforeSend: () => showLoader(),
                 success: function (response) {
                     showModal(response)
                     setTimeout(function() {
                         location.reload();
-                    }, 4000);
+                    }, 3000);
                 },
                 error: function(response) {
                     showModal(response);
-                }
+                },
+                complete: () => hideLoader()
             });
         })
 
     }
+
+    $("#sensorSelectBtn").click(function () {
+        $.ajax({
+            type: "POST",
+            url: "/changeSensorDisplayed",
+            headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+            data: {
+                selectedSensor: $("#sensorSelect").val()
+            },
+            beforeSend: () => showLoader(),
+            success: function (response) {
+                showModal(response)
+                setTimeout(function() {
+                    location.reload();
+                }, 3000);
+            },
+            error: function(response) {
+                showModal(response);
+            },
+            complete: () => hideLoader()
+            
+        });
+    });
 });

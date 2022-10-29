@@ -42,6 +42,9 @@ class Kernel extends ConsoleKernel
                 break;
             default: break;
         }
+
+        // Sensor értékek eltárolása
+        $schedule->command('command:storesensordata')->everyThreeMinutes();
     }
 
     /**

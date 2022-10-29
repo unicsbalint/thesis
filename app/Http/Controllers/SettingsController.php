@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\Models\Cloud\CloudBackup;
+use App\Models\Devices\Climate\SensorToDisplay;
 
 class SettingsController extends Controller
 {
@@ -15,6 +16,10 @@ class SettingsController extends Controller
 
         $backup = CloudBackup::select('*')->first();
         $data["backupInterval"] = $backup->backup_time_interval;
+
+        $sensorDisplay = SensorToDisplay::select('*')->first();
+        $data["selectedSensor"] = $sensorDisplay->selected_sensor;
+         
         
         return view('settings')->withData($data);
     }
@@ -38,5 +43,12 @@ class SettingsController extends Controller
         $backup->backup_time_interval = $request->backupInterval;
         $backup->save();
         return "A biztonsági mentés intervallumának megváltoztatása sikeres!";
+    }
+
+    public function changeSensorDisplayed(Request $request){
+        $selectedSensor = SensorToDisplay::select('*')->first();
+        $selectedSensor->selected_sensor = $request->selectedSensor;
+        $selectedSensor->save();
+        return "A kiválasztott információk fognak megjelenni! <br> Az oldal 3 másodpercen belül újratöltődik és a változtatások életbelépnek.";
     }
 }

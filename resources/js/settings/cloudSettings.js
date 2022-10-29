@@ -1,9 +1,10 @@
 import { showModal } from '../alertModal';
+import { showLoader, hideLoader } from '../loader';
+
 $(document).ready(function() {
     if(window.location.pathname === "/settings"){
 
         $("#backupBtn").click(function () {
-            console.log($("#backupSelect").val());
             $.ajax({
                 type: "POST",
                 url: "/changeBackupInterval",
@@ -11,12 +12,14 @@ $(document).ready(function() {
                 data: {
                     backupInterval: $("#backupSelect").val()
                 },
+                beforeSend: () => showLoader(),
                 success: function (response) {
                     showModal(response)
                 },
                 error: function(response) {
                     showModal(response);
-                }
+                },
+                complete: () => hideLoader()
             });
         });
 

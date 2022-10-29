@@ -1,3 +1,4 @@
+#Az otletet meritettem a szenzor gyartojanak a honlapjarol: https://wiki.seeedstudio.com/Grove-Temperature_and_Humidity_Sensor_Pro/
 import sys
 import seeed_dht
 def main():
@@ -7,7 +8,7 @@ def main():
 
 
     if len(sys.argv) < 2:
-        print("asd")
+        print("Az alabbi parameterekkel hasznalhato a program: temp , humi")
         sys.exit()
 
     requestedData = sys.argv[1]

@@ -5,7 +5,7 @@
                     <!-- {{ config('app.name', 'Laravel') }} -->
                     <img style="width: 3rem;" src="{{asset('images/logo.png')}}" alt="CSB Cloud" class="menuWrapper">
                 </a>
-                <div>20.3 &#8451;🌡</div>
+                <div>{{$data["sensorData"]}}</div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
