@@ -60,6 +60,9 @@ Route::group(['middleware' => ['auth']], function() {
     // Leds
     Route::post('/switchMoodLight', 'App\Http\Controllers\DeviceController@switchMoodLight');    
 
+    // Statistics
+    Route::get('/getStatistics', 'App\Http\Controllers\StatisticsController@getStatistics');
+
 
  });
 

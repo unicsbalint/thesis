@@ -19,9 +19,7 @@ $(document).ready(function() {
         $(".colorPicker").click(function () {
             const isLedTurnedOn = $(".moodLightToggle").prop('checked');
             const colorClicked = $(this).data('color');
-            console.log(isLedTurnedOn, colorClicked)
             if(isLedTurnedOn){
-                console.log("changeing light to:", colorClicked)
                 turnOnMoodLightWithColor(colorClicked);
             }
             else{
