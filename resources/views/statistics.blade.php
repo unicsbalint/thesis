@@ -2,10 +2,11 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        <h6 class="display-6">Eszközhasználati szokások kimutatása</h6>
         <div class="row g-3">
             <div class="col-auto">
                 <select class="form-control deviceSelect">
-                    <option value="-" disabled selected>Eszköz</option>
+                    <option value="-" disabled selected>Eszköz vagy szenzor</option>
                     <option value="temperature">Hőmérséklet</option>
                     <option value="humidity">Páratartalom</option>
                     <option value="climate">Fűtés</option>

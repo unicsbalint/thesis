@@ -17,11 +17,11 @@ $(document).ready(function() {
                 return;
             }
 
-            let requestData = {
+            const requestData = {
                 title: deviceText,
                 subtitle: intervalText,
                 yAxisTitleText: deviceText,
-                tooltip: '{point.y:.1f}',
+                tooltip: '<b> {point.y:.1f} </b>',
                 seriesName: deviceText,
                 data: getStatisticsData(device, interval)
             }

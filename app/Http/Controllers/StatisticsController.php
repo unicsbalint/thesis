@@ -34,8 +34,10 @@ class StatisticsController extends Controller
                 return TemperatureStatistics::last24Hour();
                 break;
             case "last7days":
+                return TemperatureStatistics::last7days();
                 break;
             case "lastMonth":
+                return TemperatureStatistics::lastMonth();
                 break;
             
             default: break;
@@ -48,8 +50,10 @@ class StatisticsController extends Controller
                 return HumidityStatistics::last24Hour();
                 break;
             case "last7days":
+                return HumidityStatistics::last7days();
                 break;
             case "lastMonth":
+                return HumidityStatistics::lastMonth();
                 break;
             
             default: break;
