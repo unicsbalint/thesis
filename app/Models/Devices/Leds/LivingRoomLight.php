@@ -8,8 +8,9 @@ use Request;
 use App\Http\Controllers\Controller;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
-use DB;
 use App\Models\Devices\Leds\LedState;
+use App\Models\Statistics\HomeAction;
+
 
 class LivingRoomLight extends Model
 {
@@ -23,9 +24,11 @@ class LivingRoomLight extends Model
 
         if($state == "on"){
             LedState::where('light','LivingRoomLight')->update(['state' => 1]);
+            HomeAction::logActionStart("LivingRoomLight");
         }
         else{
             LedState::where('light','LivingRoomLight')->update(['state' => 0]);
+            HomeAction::logActionEnd("LivingRoomLight");
         }
 
         return $process->getOutput();

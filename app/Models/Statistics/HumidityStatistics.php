@@ -9,7 +9,7 @@ use DB;
 class HumidityStatistics extends Model
 {
     public $timestamps = false;
-    public $table = 'sensor_date';
+    public $table = 'sensor_data';
 
     public static function last24Hour(){
         $data = DB::select(DB::raw("
