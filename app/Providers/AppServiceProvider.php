@@ -33,8 +33,8 @@ class AppServiceProvider extends ServiceProvider
             $this->data["sensorData"] = Sensor::getTemperature() . "🌡";
         }
         else if($selectedSensor == "humidity"){
-            $this->data["sensorData"] = Sensor::getHumidity() . "%"."⛅";
-        }
+                $this->data["sensorData"] = Sensor::getHumidity() . "%"."⛅";
+            }
         else if($selectedSensor == "both"){
             $this->data["sensorData"] = Sensor::getTemperature()."🌡".Sensor::getHumidity()."%"."⛅";
         }
