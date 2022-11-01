@@ -28,11 +28,4 @@ class HomeAction extends Model
     public static function logMultipleActionEnd($device){
         HomeAction::where('device',$device)->whereNull('interval2')->update(['interval2' => date("Y-m-d H:i:s")]);
     }
-
-    
-
-
-
-
-
 }
