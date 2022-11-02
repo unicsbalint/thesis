@@ -26,6 +26,36 @@ $(document).ready(function() {
                 $(".moodLightToggle").data('color', colorClicked);
             }
         });
+
+        $(".livingRoomLightToggle").click(function () {
+            const isLedTurnedOn = $(this).prop('checked');
+            if(isLedTurnedOn){
+                toggleLivingRoomLight("on")
+            }
+            else{
+                toggleLivingRoomLight("off") 
+            }
+        });
+    }
+
+    const toggleLivingRoomLight = (state) => {
+        $.ajax({
+            type: "POST",
+            url: "/toggleLivingRoomLight",
+            headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+            data: {
+                state: state
+            },
+            beforeSend: function (){
+                showLoader();
+            },
+            error: function() {
+                 showModal("Probléma lépett fel a lámpa lekapcsolása közben!")
+            },
+            complete: function() {
+                hideLoader();
+            }
+        });
     }
 
     const turnOffMoodLight = () => {

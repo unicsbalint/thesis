@@ -9,8 +9,10 @@
                     <option value="-" disabled selected>Eszköz vagy szenzor</option>
                     <option value="temperature">Hőmérséklet</option>
                     <option value="humidity">Páratartalom</option>
-                    <option value="climate">Fűtés</option>
-                    <option value="moodlight">Hangulatfény</option>
+                    <option value="cooling">Hűtés</option>
+                    <option value="heating">Fűtés</option>
+                    <option value="livingRoomLight">Nappali lámpa</option>
+                    <option value="moodLight">Hangulatfény</option>
                     <option value="webcam">Webkamera</option>
                 </select>
             </div>

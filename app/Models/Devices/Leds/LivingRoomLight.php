@@ -8,28 +8,27 @@ use Request;
 use App\Http\Controllers\Controller;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
-use DB;
 use App\Models\Devices\Leds\LedState;
 use App\Models\Statistics\HomeAction;
 
 
-class MoodLight extends Model
+class LivingRoomLight extends Model
 {
-    public static function switchMoodLight($color){
-        $process = new Process(['python', '/var/www/html/tasks/Leds/moodLight.py',$color]);
+    public static function toggleLivingRoomLight($state){
+        $process = new Process(['python', '/var/www/html/tasks/Leds/livingRoomLed.py', $state]);
         $process->run();
 
 		if (!$process->isSuccessful()) {
 			throw new ProcessFailedException($process);
 		}
 
-        if($color != "turnoff"){
-            LedState::where('light','MoodLight')->update(['state' => 1]);
-            HomeAction::logActionStart("MoodLight");
+        if($state == "on"){
+            LedState::where('light','LivingRoomLight')->update(['state' => 1]);
+            HomeAction::logActionStart("LivingRoomLight");
         }
         else{
-            LedState::where('light','MoodLight')->update(['state' => 0]);
-            HomeAction::logMultipleActionEnd("MoodLight");
+            LedState::where('light','LivingRoomLight')->update(['state' => 0]);
+            HomeAction::logActionEnd("LivingRoomLight");
         }
 
         return $process->getOutput();

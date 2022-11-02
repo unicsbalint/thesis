@@ -4,6 +4,7 @@ namespace App\Console;
 
 use App\Models\Cloud\CloudBackup;
 use Illuminate\Console\Scheduling\Schedule;
+use App\Models\Devices\Climate\ClimateState;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
@@ -45,6 +46,15 @@ class Kernel extends ConsoleKernel
 
         // Sensor értékek eltárolása
         $schedule->command('command:storesensordata')->everyThreeMinutes();
+
+        // Ha a klíma automatikusra van állítva akkor beállítja a hőmérsékletet.
+
+        $isClimateAuto = ClimateState::where('climate_type','auto')->first()->state != 0;
+
+        if($isClimateAuto){
+            $schedule->command('command:autoclimate')->everyTwoMinutes();
+        }
+
     }
 
     /**

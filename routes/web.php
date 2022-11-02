@@ -34,8 +34,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/settings', 'App\Http\Controllers\SettingsController@index')->name('settings');
     Route::get('/statistics', 'App\Http\Controllers\StatisticsController@index')->name('statistics');
 
-    Route::post('/blinkled', 'App\Http\Controllers\LedController@BlinkLed');
-
     // Cloud actions
     Route::get('/getCloudFiles', 'App\Http\Controllers\CloudController@getCloudFiles');
     Route::get('/downloadFile', 'App\Http\Controllers\CloudController@downloadFile');
@@ -59,9 +57,17 @@ Route::group(['middleware' => ['auth']], function() {
 
     // Leds
     Route::post('/switchMoodLight', 'App\Http\Controllers\DeviceController@switchMoodLight');    
+    Route::post('/toggleLivingRoomLight', 'App\Http\Controllers\DeviceController@toggleLivingRoomLight');    
 
+    // Climate
+    Route::post('/toggleCooling', 'App\Http\Controllers\DeviceController@toggleCooling');
+    Route::post('/toggleHeating', 'App\Http\Controllers\DeviceController@toggleHeating');    
+    Route::post('/toggleAutoClimate', 'App\Http\Controllers\DeviceController@toggleAutoClimate');    
+    
     // Statistics
     Route::get('/getStatistics', 'App\Http\Controllers\StatisticsController@getStatistics');
+
+
 
 
  });

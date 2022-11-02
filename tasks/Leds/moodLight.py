@@ -8,9 +8,9 @@ GPIO.setup(40, GPIO.OUT) # green
 GPIO.setup(36, GPIO.OUT) # red
 GPIO.setup(38, GPIO.OUT) # blue
 
-green = GPIO.PWM(40, 100)
+blue = GPIO.PWM(40, 100)
 red = GPIO.PWM(36, 100)
-blue = GPIO.PWM(38, 100)
+green = GPIO.PWM(38, 100)
 
 # Megallitom oket ha epp mar lenne rajtuk jel
 GPIO.output(40, False)

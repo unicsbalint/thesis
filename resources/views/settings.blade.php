@@ -17,7 +17,7 @@
             </div>
             <div class="tab-content card-body">
                 <div id="userSettings" class="tab-pane active">
-                    <h6>Név megváltoztatása</h6>
+                    <h5>Név megváltoztatása</h5>
                     <hr>
                     <div class="d-flex align-items-center justify-content-center w-100">
                         <div class="input-group mb-3 w-75">
@@ -25,7 +25,7 @@
                             <button class="btn btn-outline-secondary" id="changeUsername" type="button" id="button-addon2">Név beállítása</button>
                         </div>
                     </div>
-                    <h6 class="mt-2">Jelszóváltoztatás</h6>
+                    <h5 class="mt-2">Jelszóváltoztatás</h5>
                     <hr>
 
                         <div class="form-group row m-3">

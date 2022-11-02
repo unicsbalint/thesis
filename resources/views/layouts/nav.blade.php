@@ -25,6 +25,16 @@
                                     Cloud
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('statistics') }}">
+                                    Statisztika
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('settings') }}">
+                                    Beállítások
+                                </a>
+                            </li>
                         @endif
                     </ul>
                         

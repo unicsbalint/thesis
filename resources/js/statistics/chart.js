@@ -1,6 +1,7 @@
 import Highcharts from 'highcharts';
 
 export const generateChart = (requestObject) => {
+    console.log(requestObject)
     Highcharts.chart('chartContainer', {
         chart: {
             type: 'column'
@@ -24,7 +25,7 @@ export const generateChart = (requestObject) => {
             }
         },
         legend: {
-            enabled: true
+            enabled: false
         },
         tooltip: {
             pointFormat: requestObject.tooltip
