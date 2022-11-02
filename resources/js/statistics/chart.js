@@ -1,6 +1,7 @@
 import Highcharts from 'highcharts';
 
 export const generateChart = (requestObject) => {
+    console.log(requestObject)
     Highcharts.chart('chartContainer', {
         chart: {
             type: 'column'
