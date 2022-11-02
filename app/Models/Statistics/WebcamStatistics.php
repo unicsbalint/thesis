@@ -12,7 +12,7 @@ class WebcamStatistics extends Model
         $data = DB::select(DB::raw("
             SELECT count(*) val, 
             DATE_FORMAT(interval1,'%H:00') result_date FROM csbhome.home_actions
-            WHERE device = 'cooling'
+            WHERE device = 'webcam'
             AND (interval1 - INTERVAL 24 HOUR < CURRENT_TIMESTAMP() OR interval2 - INTERVAL 24 HOUR < CURRENT_TIMESTAMP())
             GROUP BY DATE_FORMAT(interval1,'%Y-%m-%d %H:00')
         "));
@@ -30,9 +30,9 @@ class WebcamStatistics extends Model
 
     public static function last7days(){
         $data = DB::select(DB::raw("
-        SELECT ROUND(SUM(TIMESTAMPDIFF(SECOND,interval1, interval2) / 60),2) val, 
+        SELECT count(*) val, 
         DATE_FORMAT(interval1,'%Y-%m-%d') result_date FROM csbhome.home_actions
-        WHERE device = 'cooling'
+        WHERE device = 'webcam'
         AND (interval1 - INTERVAL 7 DAY < CURRENT_TIMESTAMP() OR interval2 - INTERVAL 7 DAY < CURRENT_TIMESTAMP())
         GROUP BY DATE_FORMAT(interval1,'%Y-%m-%d')
         "));
@@ -50,9 +50,9 @@ class WebcamStatistics extends Model
 
     public static function lastMonth(){
         $data = DB::select(DB::raw("
-            SELECT ROUND(SUM(TIMESTAMPDIFF(SECOND,interval1, interval2) / 60),2) val, 
+            SELECT count(*) val, 
             DATE_FORMAT(interval1,'%Y-%m-%d') result_date FROM csbhome.home_actions
-            WHERE device = 'cooling'
+            WHERE device = 'webcam'
             AND (interval1 - INTERVAL 1 MONTH < CURRENT_TIMESTAMP() OR interval2 - INTERVAL 1 MONTH < CURRENT_TIMESTAMP())
             GROUP BY DATE_FORMAT(interval1,'%Y-%m-%d')
         "));

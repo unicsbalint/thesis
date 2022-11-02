@@ -25,7 +25,7 @@ export const generateChart = (requestObject) => {
             }
         },
         legend: {
-            enabled: true
+            enabled: false
         },
         tooltip: {
             pointFormat: requestObject.tooltip
